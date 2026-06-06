@@ -1,1 +1,651 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Магистратура КТ — Русский вариант</title>
 
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#eef7ff,#f7fff4);
+  color:#1b1b1b;
+}
+.wrapper{max-width:980px;margin:auto;padding:16px}
+.hero{
+  background:linear-gradient(135deg,#1565c0,#43a047);
+  color:white;
+  padding:28px 20px;
+  border-radius:22px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+.hero h1{margin:0 0 10px;font-size:30px;line-height:1.2}
+.hero p{margin:8px 0;font-size:16px;line-height:1.5}
+.badge{
+  display:inline-block;
+  background:white;
+  color:#1565c0;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:bold;
+  margin-top:12px;
+  font-size:14px;
+}
+.promo{
+  background:white;
+  border:2px solid #43a047;
+  padding:20px;
+  border-radius:22px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 7px 20px rgba(0,0,0,.08);
+}
+.promo h2{margin:0 0 14px;color:#1565c0;font-size:22px}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.promo-btn{
+  display:block;
+  text-decoration:none;
+  color:white;
+  padding:14px;
+  border-radius:14px;
+  font-weight:bold;
+}
+.channel,.telegram{background:#229ED9}
+.whatsapp{background:#25D366}
+.nav-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.nav-buttons a{
+  text-align:center;
+  text-decoration:none;
+  background:white;
+  color:#1565c0;
+  padding:14px;
+  border-radius:14px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+  border:1px solid #dbeafe;
+}
+.card{
+  background:white;
+  padding:22px;
+  border-radius:20px;
+  margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.card h2{margin-top:0;color:#1565c0;font-size:22px}
+.section-title{
+  background:#e3f2fd;
+  border-left:5px solid #1565c0;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:18px;
+}
+.question{
+  background:#f7f7f7;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:16px;
+  border-left:5px solid #43a047;
+}
+.question b{display:block;margin-bottom:12px;font-size:16px;line-height:1.5}
+label{
+  display:block;
+  background:white;
+  padding:12px;
+  border-radius:12px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  cursor:pointer;
+  line-height:1.4;
+}
+label:hover{background:#e8f5e9}
+input[type="radio"]{margin-right:8px;transform:scale(1.1)}
+.text-box{
+  background:#fafafa;
+  padding:16px;
+  border-radius:16px;
+  line-height:1.6;
+  margin-bottom:18px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
+audio{width:100%;margin:12px 0 18px}
+button{
+  width:100%;
+  background:#1565c0;
+  color:white;
+  border:none;
+  padding:16px;
+  border-radius:14px;
+  cursor:pointer;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px;
+}
+button:hover{background:#0d47a1}
+.result-box{
+  background:#e8f5e9;
+  border:2px solid #43a047;
+  padding:22px;
+  border-radius:20px;
+  text-align:center;
+  margin-bottom:18px;
+}
+.result-box h2{margin-top:0;color:#2e7d32}
+.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}
+.score-item{background:white;padding:12px;border-radius:14px;font-weight:bold}
+.correct{color:green;font-weight:bold}
+.wrong{color:red;font-weight:bold}
+.explanation{
+  background:#f1f8e9;
+  padding:12px;
+  margin:10px 0 18px;
+  border-radius:12px;
+  line-height:1.5;
+}
+.question-image{
+  width:100%;
+  max-width:520px;
+  display:block;
+  margin:14px auto 16px;
+  border-radius:14px;
+  border:1px solid #ddd;
+  box-shadow:0 5px 16px rgba(0,0,0,.10);
+  background:white;
+}
+.grid-figure{
+  display:grid;
+  grid-template-columns:repeat(4,42px);
+  grid-template-rows:repeat(4,42px);
+  width:max-content;
+  margin:14px auto 16px;
+  border:2px solid #222;
+}
+.grid-figure div{
+  width:42px;
+  height:42px;
+  border:1px solid #222;
+  background:white;
+}
+.grid-figure .yellow{background:#ffeb00}
+.svg-figure{
+  display:block;
+  margin:14px auto 16px;
+  max-width:560px;
+  width:100%;
+  background:white;
+  border:1px solid #ddd;
+  border-radius:14px;
+  box-shadow:0 5px 16px rgba(0,0,0,.10);
+}
+.contact-box{
+  background:white;
+  border:2px solid #1565c0;
+  padding:22px;
+  border-radius:20px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.contact-box h2{color:#1565c0;margin-top:0}
+.footer{text-align:center;color:#555;font-size:14px;padding:20px 0}
+
+@media(max-width:600px){
+  .wrapper{padding:12px}
+  .hero{padding:24px 16px;border-radius:18px}
+  .hero h1{font-size:24px}
+  .hero p{font-size:15px}
+  .nav-buttons,.promo-grid,.score-grid{grid-template-columns:1fr}
+  .card,.promo,.contact-box{padding:16px;border-radius:17px}
+  .question{padding:15px}
+  .question b{font-size:15px}
+  label{font-size:15px;padding:11px}
+  button{font-size:16px;padding:15px}
+  .grid-figure{grid-template-columns:repeat(4,34px);grid-template-rows:repeat(4,34px)}
+  .grid-figure div{width:34px;height:34px}
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+
+<div class="hero">
+<h1>Магистратура КТ — Русский вариант</h1>
+<p>Критическое мышление, аналитическое мышление и English</p>
+<span class="badge">80 вопросов • результат сразу</span>
+</div>
+
+<div class="promo">
+<h2>Дополнительные бесплатные тесты в Telegram-канале</h2>
+<div class="promo-grid">
+<a class="promo-btn channel" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">Telegram-канал</a>
+<a class="promo-btn whatsapp" href="https://wa.me/77007976745?text=Здравствуйте!%20Хочу%20узнать%20про%20тесты%20для%20КТ%20в%20магистратуру." target="_blank">WhatsApp</a>
+<a class="promo-btn telegram" href="https://t.me/elnazm_ln" target="_blank">Telegram лично</a>
+</div>
+</div>
+
+<div class="nav-buttons">
+<a href="#critical">Критическое мышление</a>
+<a href="#analytical">Аналитическое мышление</a>
+<a href="#english">English</a>
+</div>
+
+<div class="card">
+<h2>Инструкция</h2>
+<ul>
+<li><b>Критическое мышление:</b> 1–15 вопросы</li>
+<li><b>Аналитическое мышление:</b> 16–30 вопросы</li>
+<li><b>English:</b> 1–50 вопросы</li>
+</ul>
+<p>Ответьте на все вопросы и нажмите кнопку «Показать результат».</p>
+</div>
+
+<section id="critical" class="card">
+<div class="section-title">
+<h2>Part 1. Критическое мышление</h2>
+<p>Выберите правильный ответ.</p>
+</div>
+<div id="criticalQuiz"></div>
+<div id="criticalResults"></div>
+</section>
+
+<section id="analytical" class="card">
+<div class="section-title">
+<h2>Part 2. Аналитическое мышление</h2>
+<p>Прочитайте задания и тексты, затем выберите правильный ответ.</p>
+</div>
+
+<h2>Текст 1. Жизнь, ДНК, РНК и белки</h2>
+<div class="text-box">
+<p>Общепринятого определения жизни в биологии не существует. Одни ученые полагают, что жизнь – скорее процесс, чем структура. Другие считают, что понятие "жизнь" неотделимо от понятия "организм". Третьи подчеркивают информационную природу жизни.</p>
+<p>Нам известна только одна жизнь – земная, и мы не знаем, какие из ее свойств являются обязательными для любой жизни вообще. Рискнем, однако, два таких свойства все-таки назвать. Это, во-первых, наличие наследственной информации, во-вторых – активное осуществление функций, направленных на самоподдержание и размножение, а также на получение энергии, необходимой для выполнения всей этой работы.</p>
+<p>Все живое на Земле справляется с перечисленными задачами при помощи трех классов сложных органических соединений: ДНК, РНК и белков. ДНК взяла на себя первую задачу – хранение наследственной информации. Белки отвечают за вторую: они выполняют все виды активных "работ". Молекулы третьего класса веществ – РНК – служат посредниками между ДНК и белками, обеспечивая считывание наследственной информации.</p>
+</div>
+
+<h2>Текст 2. Календарь</h2>
+<div class="text-box">
+<p>За 4000 лет своего существования календарь успел пережить и взлеты, и падения. Знакомую нам форму он начал принимать только в III тысячелетии до н. э. При раскопках находят кости с загадочными отметинами, однако пока невозможно заявить с уверенностью, что именно таким образом древние вели счет времени.</p>
+<p>Два самых главных понятия, без которых невозможна календарная система, - месяц и год. Вполне логичным и резонным для большинства наших современников было бы определить месяц как полный цикл смены лунных фаз. Сходного мнения придерживались и вавилоняне, и именно смену лунных фаз они положили 3500 лет назад в основу своего календаря.</p>
+<p>По аналогичному принципу строился десятимесячный календарь и у древних римлян. Предположительно он был создан одним из основателей Рима - царем Ромулом - в тот же год, 753-й до н. э., когда был заложен «вечный город».</p>
+</div>
+
+<h2>Текст 3. Монеты, артефакты и типология</h2>
+<div class="text-box">
+<p>Многие из нас успели на своем веку попользоваться монетами с изображениями глав государств. Если человек находится у власти достаточно долго, то чеканится несколько разных изображений, отражающих возрастные изменения.</p>
+<p>Первым высокий потенциал типологии разглядел Огастес Лейн-Фокс, более известный как Питт Риверс. Опираясь на принципы постепенных изменений, изложенные в дарвиновском «Происхождении видов», он проследил эволюционное развитие разных стилей в своей коллекции артефактов.</p>
+<p>«Отцом типологии» стал шведский ученый Оскар Монтелиус, специализировавшийся на бронзовом веке и классифицировавший артефакты этого периода по степени их сходства и различия.</p>
+</div>
+
+<h2>Текст 4. Снег</h2>
+<div class="text-box">
+<p><b>Текст 1.</b> Снег – форма атмосферных осадков, состоящая из мелких разветвленных кристаллов льда. Снег относится к обложным осадкам, выпадающим на земную поверхность. Белый цвет снега получается благодаря воздуху, содержащемуся в снежинках. Снег образуется, когда микроскопические капли воды в облаках притягиваются к пылевым частицам и замерзают.</p>
+<p><b>Текст 2.</b> Снег – это разновидность атмосферных осадков, которые состоят из мелких ледяных кристалликов, выпадающих на поверхность нашей планеты из слоисто-дождевых облаков в зимнее время года, создавая снежный покров.</p>
+</div>
+
+<div id="analyticalQuiz"></div>
+<div id="analyticalResults"></div>
+</section>
+
+<section id="english" class="card">
+<div class="section-title">
+<h2>Part 3. English</h2>
+<p>Choose the correct answer.</p>
+</div>
+
+<h2>Listening 1</h2>
+<audio controls controlsList="nodownload">
+<source src="TEXT%2035%20-%20АУДИО.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div id="engListening1"></div>
+
+<h2>Listening 2</h2>
+<audio controls controlsList="nodownload">
+<source src="TEXT%2036%20-%20АУДИО.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div id="engListening2"></div>
+
+<div class="section-title">
+<h2>Lexico-Grammar Test</h2>
+<p>Choose the correct grammatical or lexical option.</p>
+</div>
+<div id="engGrammar"></div>
+
+<h2>Text 35. Chicago</h2>
+<div class="text-box">
+<p>Keith recently came back from a trip to Chicago, Illinois. This midwestern metropolis is found along the shore of Lake Michigan. During his visit, Keith spent a lot of time exploring the city to visit important landmarks and monuments.</p>
+<p>Keith loves baseball, and he made sure to take a visit to Wrigley Field. Not only did he take a tour of this spectacular stadium, but he also got to watch a Chicago Cubs game. In the stadium, Keith and the other fans cheered for the Cubs. Keith was happy that the Cubs won with a score of 5-4.</p>
+<p>Chicago has many historic places to visit. Keith found the Chicago Water Tower impressive as it is one of the few remaining landmarks to have survived the Great Chicago Fire of 1871. Keith also took a walk through Jackson Park, a great outdoor space that hosted the World's Fair of 1892.</p>
+<p>During the last part of his visit, Keith managed to climb the stairs inside of the Willis Tower, a 110-story skyscraper. From the rooftop, Keith received a gorgeous view of the city's skyline with Lake Michigan in the background.</p>
+</div>
+<div id="engReading1"></div>
+
+<h2>Text 36. Yellowstone National Park</h2>
+<div class="text-box">
+<p>Yellowstone National Park, located in Idaho, Montana, and Wyoming, was established as the first national park in the United States. The park is a popular destination for visitors who enjoy ecological tourism as it offers forests, mountains, and abundant ecosystems to explore.</p>
+<p>Last fall, Lisa and her friends decided to take a camping trip to Yellowstone National Park. They arranged to stay at one of the park's many convenient campsites. During their trip, Lisa and her friends hiked the many trails of the park, exploring its natural surroundings. In the forest, they saw a lot of local wildlife.</p>
+<p>Since Yellowstone contains many hot springs and the world's largest area of active geysers, Lisa and her friends visited many different geyser sites. Of all of the sites, Lisa and her friends agreed that Old Faithful was the most impressive. After about 40 minutes, a stream of boiling water over 100 feet tall sprayed from the ground and up into the air.</p>
+</div>
+<div id="engReading2"></div>
+<div id="englishResults"></div>
+</section>
+
+<div class="card">
+<button onclick="checkAnswers()">Показать результат</button>
+</div>
+
+<div id="results"></div>
+
+<div class="footer">© Магистратура КТ — Русский вариант</div>
+</div>
+
+<script>
+function figureHTML(type){
+if(type==="grid4"){
+return `<div class="grid-figure">
+<div class="yellow"></div><div class="yellow"></div><div></div><div></div>
+<div class="yellow"></div><div class="yellow"></div><div></div><div></div>
+<div></div><div></div><div class="yellow"></div><div class="yellow"></div>
+<div></div><div></div><div class="yellow"></div><div class="yellow"></div>
+</div>`;
+}
+if(type==="lineGraph"){
+return `<svg class="svg-figure" viewBox="0 0 420 300">
+<rect x="0" y="0" width="420" height="300" fill="white"/>
+<g stroke="#ddd" stroke-width="1">
+${Array.from({length:9},(_,i)=>`<line x1="${40+i*40}" y1="20" x2="${40+i*40}" y2="260"/>`).join("")}
+${Array.from({length:7},(_,i)=>`<line x1="40" y1="${20+i*40}" x2="360" y2="${20+i*40}"/>`).join("")}
+</g>
+<line x1="200" y1="20" x2="200" y2="260" stroke="#111" stroke-width="2"/>
+<line x1="40" y1="140" x2="360" y2="140" stroke="#111" stroke-width="2"/>
+<path d="M200 20 L194 32 M200 20 L206 32" stroke="#111" stroke-width="2" fill="none"/>
+<path d="M360 140 L348 134 M360 140 L348 146" stroke="#111" stroke-width="2" fill="none"/>
+<line x1="40" y1="60" x2="360" y2="220" stroke="#e58a2a" stroke-width="3"/>
+<text x="210" y="36" font-size="20">y</text>
+<text x="344" y="164" font-size="20">x</text>
+<text x="180" y="158" font-size="20">O</text>
+<text x="238" y="164" font-size="18">1</text>
+<text x="184" y="104" font-size="18">1</text>
+</svg>`;
+}
+if(type==="barChart"){
+return `<svg class="svg-figure" viewBox="0 0 620 350">
+<rect width="620" height="350" fill="white"/>
+<g font-size="15" fill="#333">
+<text x="500" y="105">■ Яблоко</text>
+<text x="500" y="135">■ Груша</text>
+<text x="500" y="165">■ Вишня</text>
+</g>
+<g stroke="#ddd">
+<line x1="60" y1="290" x2="460" y2="290"/>
+<line x1="60" y1="250" x2="460" y2="250"/>
+<line x1="60" y1="210" x2="460" y2="210"/>
+<line x1="60" y1="170" x2="460" y2="170"/>
+<line x1="60" y1="130" x2="460" y2="130"/>
+<line x1="60" y1="90" x2="460" y2="90"/>
+</g>
+<line x1="60" y1="290" x2="460" y2="290" stroke="#777"/>
+<line x1="60" y1="50" x2="60" y2="290" stroke="#777"/>
+<rect x="95" y="130" width="24" height="160" fill="#5b9bd5"/>
+<rect x="122" y="90" width="24" height="200" fill="#ed7d31"/>
+<rect x="149" y="210" width="24" height="80" fill="#a5a5a5"/>
+<rect x="225" y="130" width="24" height="160" fill="#5b9bd5"/>
+<rect x="252" y="210" width="24" height="80" fill="#ed7d31"/>
+<rect x="279" y="50" width="24" height="240" fill="#a5a5a5"/>
+<rect x="355" y="50" width="24" height="240" fill="#5b9bd5"/>
+<rect x="382" y="90" width="24" height="200" fill="#ed7d31"/>
+<rect x="409" y="50" width="24" height="240" fill="#a5a5a5"/>
+<g font-size="14">
+<text x="96" y="320">1-магазин</text>
+<text x="226" y="320">2-магазин</text>
+<text x="356" y="320">3-магазин</text>
+</g>
+</svg>`;
+}
+if(type==="venn"){
+return `<svg class="svg-figure" viewBox="0 0 520 300">
+<rect width="520" height="300" fill="white"/>
+<circle cx="210" cy="150" r="95" fill="none" stroke="#333" stroke-width="2"/>
+<circle cx="310" cy="150" r="95" fill="none" stroke="#333" stroke-width="2"/>
+<text x="120" y="45" font-size="22">Ноутбук 68</text>
+<text x="325" y="45" font-size="22">Компьютер 55</text>
+<text x="250" y="155" font-size="28">28</text>
+<text x="420" y="240" font-size="24">5</text>
+</svg>`;
+}
+return "";
+}
+
+const criticalQuestions=[
+{q:"1. Если 2y + 3 ≤ 11 и 1 ≤ x ≤ 5, то определите максимально возможное значение для xy.",options:["A) 25","B) 55","C) 40","D) 20","E) 11"],answer:3,explanation:"Из 2y + 3 ≤ 11 получаем y ≤ 4. Максимальное x равно 5. Поэтому максимальное xy = 5 · 4 = 20."},
+{q:"2. Сравните величины: величина A = -|-15 - 9|, величина B = -|-15 + 9|.",options:["A) Величина A равна величине B","B) Величина A меньше величины B","C) Величина A больше величины B","D) Взаимосвязь между величинами не может быть определена из данной информации"],answer:1,explanation:"A = -|-24| = -24. B = -|-6| = -6. Так как -24 < -6, величина A меньше величины B."},
+{q:"3. Найдите значение выражения (12a⁴b³ − 6a³b²)/(3a³b²), при a = 3, b = 2.",options:["A) 15","B) 22","C) 37","D) 50","E) 21"],answer:1,explanation:"Сократим выражение: 4ab − 2. При a=3, b=2: 4·3·2 − 2 = 22."},
+{q:"4. Последняя цифра степени 1924²⁰²⁴ = ... b. Если сторона квадрата равна b, найдите площадь закрашенной фигуры.",figure:"grid4",options:["A) 16 см²","B) 36 см²","C) 18 см²","D) 26 см²","E) 6 см²"],answer:2,explanation:"Последняя цифра 4 в четной степени дает 6, значит b=6. Закрашена половина квадрата: 6²/2 = 18 см²."},
+{q:"5. Арифметическая прогрессия задана условием: aₙ = 3n + 4. Найдите a₅.",options:["A) 24","B) 33","C) 12","D) 19","E) 16"],answer:3,explanation:"a₅ = 3·5 + 4 = 19."},
+{q:"6. Укажите функцию, график которой изображен на рисунке.",figure:"lineGraph",options:["A) y = -1/2x","B) y = -1/x","C) y = x² + 1","D) y = 1/2x","E) y = √x"],answer:0,explanation:"На рисунке прямая проходит через начало координат и убывает. Наклон равен -1/2, значит функция y = -1/2x."},
+{q:"7. Сравните величины, если последняя цифра 2027²⁰¹⁸ = a, последняя цифра 2018¹⁹⁶⁴ = b, последняя цифра 2022¹⁸⁶¹ = c.",options:["A) a < b < c","B) a < b > c","C) a < c < b","D) a > b < c","E) c < b < a"],answer:4,explanation:"a=9, b=6, c=2. Получаем c < b < a."},
+{q:"8. Даны значения e = 9/2, f = 25/7, g = 12/4. Выберите верное сравнение.",options:["A) e < g < f","B) f < e < g","C) g < e < f","D) f < g < e","E) g < f < e"],answer:4,explanation:"e=4,5; f≈3,57; g=3. Значит g < f < e."},
+{q:"9. Сравните величины: A = 0,3⁵ / 0,3², B: 0,1x + 10 = 10,1.",options:["A) Величина A равна величине B","B) Величина A меньше величины B","C) Величина A больше величины B","D) Взаимосвязь между величинами не может быть определена из данной информации"],answer:1,explanation:"A=0,3³=0,027. Из уравнения B получаем x=1. Поэтому A < B."},
+{q:"10. На диаграмме указано количество фруктов в трех магазинах. Укажите, в каком магазине количество фруктов самое наибольшее.",figure:"barChart",options:["A) 2-магазин","B) 3-магазин","C) 1-магазин","D) 1 и 2-магазины","E) 1 и 3-магазины"],answer:1,explanation:"1-магазин: 65, 2-магазин: 66, 3-магазин: 71. Больше всего фруктов в 3-магазине."},
+{q:"11. Проведен опрос 100 человек. 68 сказали, что у них есть ноутбук, 55 — компьютер, из них 28 имеют и ноутбук, и компьютер. 5 человек не имеют ни ноутбука, ни компьютера. Найдите количество людей, у которых есть только ноутбук.",figure:"venn",options:["A) 13","B) 27","C) 17","D) 55","E) 40"],answer:4,explanation:"Только ноутбук = 68 − 28 = 40."},
+{q:"12. Площадь квадрата равна площади прямоугольника, у которого одна сторона на 3 см больше стороны квадрата, а другая на 2 см меньше стороны квадрата. Найдите стороны прямоугольника.",options:["A) 3 см и 8 см","B) 4 см и 9 см","C) 2 см и 9 см","D) 1 см и 5 см","E) 4 см и 5 см"],answer:1,explanation:"Пусть сторона квадрата x. Тогда x²=(x+3)(x−2). Получаем x=6. Стороны прямоугольника: 4 см и 9 см."},
+{q:"13. Дан прямоугольный четырехугольник. Найдите площадь закрашенной фигуры.",image:"IMG_0904.jpeg",options:["A) 16","B) 17","C) 18","D) 15","E) 19"],answer:2,explanation:"По рисунку площадь закрашенной фигуры равна 18."},
+{q:"14. Если новая логическая операция задана формулой a&b = a⁻¹ + b⁻¹, то 2&3 равно?",options:["A) 5/6","B) 1","C) 0","D) 2/5","E) 5"],answer:0,explanation:"2&3 = 1/2 + 1/3 = 5/6."},
+{q:"15. Найдите периметр данной фигуры.",image:"IMG_0905.jpeg",options:["A) 1000","B) 2000","C) 1800","D) 800","E) 1400"],answer:2,explanation:"Периметр внешней ступенчатой фигуры равен 2(500+400)=1800."}
+];
+
+const analyticalQuestions=[
+{q:"16. Существует множество сценариев роста планет. Возможно, планеты сформировались в результате случайных столкновений и слипаний небольших тел, названных планетезималями. Но, может быть, мелкие тела объединялись в более крупные сразу большими группами в результате гравитационной неустойчивости. Неясно, происходила ли […] планет в газовой или безгазовой среде.",options:["A) аккумуляция","B) стагнация","C) ассимиляция","D) навигация","E) история"],answer:0,explanation:"Речь идет о накоплении и росте планет из мелких тел. Это аккумуляция."},
+{q:"17. Хотя температурная структура тропосферы и стратосферы в атмосферах разных планет имеет много общего, их […] сильно различается. Атмосферы Венеры и Марса в основном состоят из углекислого газа.",options:["A) химический состав","B) физическое состояние","C) давление","D) температура","E) внешний вид"],answer:0,explanation:"Далее говорится, из каких веществ состоят атмосферы планет. Поэтому подходит «химический состав»."},
+{q:"18. Археология — изучение прошлого человечества по материальным свидетельствам. Специалисты по […] археологии порой рассматривают свою специальность как отрасль науки о классических древностях или истории искусств.",options:["A) сравнительной","B) античной","C) компаративной","D) диахронической","E) искусной"],answer:1,explanation:"Слова «классические древности» и «история искусств» указывают на античную археологию."},
+{q:"19. Данный текст о жизни, ДНК, РНК и белках принадлежит к … стилю.",options:["A) научно-популярному","B) художественному","C) собственно научному","D) публицистическому","E) техническому"],answer:0,explanation:"Текст объясняет научные понятия доступным языком, поэтому это научно-популярный стиль."},
+{q:"20. Данный текст предназначен для",options:["A) ученых-химиков","B) ученых-экологов","C) ученых-биологов","D) школьников, интересующихся химией","E) студентов биологических факультетов"],answer:2,explanation:"Текст связан с биологическими понятиями: жизнь, ДНК, РНК и белки."},
+{q:"21. Слово «класс» в тексте означает",options:["A) сортность","B) группа, категория","C) марка","D) скопление","E) превосходство"],answer:1,explanation:"В выражении «три класса органических соединений» слово «класс» означает группу или категорию."},
+{q:"22. Текст о календаре принадлежит к … стилю",options:["A) собственно научному","B) публицистическому","C) научно-популярному","D) художественному","E) техническому"],answer:1,explanation:"По ключу правильный ответ — публицистический стиль."},
+{q:"23. Данный текст предназначен для",options:["A) широкого круга читателей, интересующихся историей","B) ученых-археологов","C) историков, занимающихся изучением Древнего Рима","D) ученых-антропологов","E) лингвистов, занимающихся этимологией имен собственных"],answer:0,explanation:"Текст написан доступно и рассказывает об истории календаря."},
+{q:"24. Слово «сходный» в тексте означает",options:["A) имеющий одинаковые характеристики","B) нисходящий","C) сходящийся в одной точке","D) подходящий для определенной цели","E) совершенно идентичный"],answer:0,explanation:"«Сходный» означает похожий, имеющий общие характеристики."},
+{q:"25. Текст о монетах, артефактах и типологии принадлежит к … стилю",options:["A) смешанному","B) собственно научному","C) техническому","D) публицистическому","E) научно-популярному"],answer:3,explanation:"По ключу правильный ответ — публицистический стиль."},
+{q:"26. Основная мысль текста заключается в том, что",options:["A) внешний вид артефакта может свидетельствовать о его возрасте","B) марки датировать сложнее всего","C) Оскар Монтелиус разработал систему типологии марок","D) монеты легче всего датировать","E) Чарльз Дарвин заложил основы типологии артефактов"],answer:0,explanation:"Главная идея текста: по внешним изменениям предметов можно судить об их возрасте."},
+{q:"27. Слово «обширный» в тексте означает",options:["A) широкий","B) малочисленный","C) пространный","D) разбросанный","E) богатый"],answer:4,explanation:"В выражении «обширная коллекция» слово означает богатая, большая по составу коллекция."},
+{q:"28. Утверждение, которое наиболее полно отражает содержание обоих текстов о снеге",options:["A) Снег — это разновидность атмосферных осадков, выпадающих на землю в форме снежинок","B) Снежный покров держится на поверхности земли с октября по март","C) Благодаря присутствию кристаллов воды снежинки имеют правильную шестиугольную форму","D) Осадки удерживаются в форме кристалла благодаря минусовой температуре воздуха","E) Водяной пар конденсируется при температурах значительно ниже 0°С"],answer:0,explanation:"Оба текста объясняют, что снег — это атмосферные осадки, выпадающие на землю в виде снежинок."},
+{q:"29. Ключевыми словами к обоим текстам могут служить",options:["A) минусовая температура, белый цвет, кристаллы льда, шестиугольник","B) атмосферные осадки, снежинки, кристаллы, снежный покров","C) слоисто-дождевые облака, зимнее время года","D) снежинки, кристаллы, снежный покров, шестиугольник, белый цвет","E) снежный покров, атмосферные осадки, слоисто-дождевые облака, минусовая температура"],answer:1,explanation:"Оба текста объединяют понятия: атмосферные осадки, снежинки, кристаллы и снежный покров."},
+{q:"30. Аннотацией к обоим текстам может служить следующее предложение",options:["A) Авторы данных текстов описывают процесс формирования снежинок и дают объяснение их правильной шестиугольной форме","B) Авторы данных текстов поясняют причины того, что в отдельных регионах снежный покров держится с октября по март","C) Данные тексты дают описание снега как формы атмосферных осадков в регионах, где устанавливается минусовая температура","D) Данные тексты дают описание снега как формы атмосферных осадков, состоящих из снежинок и формирующих снежный покров","E) Авторы текстов дают описание кристаллов льда, образующих снежинки и определяют роль пылевых частиц в процессе их формирования"],answer:3,explanation:"Вариант D наиболее полно и нейтрально описывает содержание обоих текстов."}
+];
+
+const englishQuestions=[
+{section:"Listening",part:"engListening1",q:"1. The employee studied ____.",options:["A) financing","B) accounting","C) supervising","D) interpreting"],answer:1,explanation:"Правильный ответ — B) accounting. В аудио говорится, что сотрудник изучал бухгалтерский учёт."},
+{section:"Listening",part:"engListening1",q:"2. The employee enjoys ____.",options:["A) reading and training","B) bicycling and running","C) reading and running","D) bicycling and reading"],answer:3,explanation:"Правильный ответ — D) bicycling and reading. В аудио сказано, что сотруднику нравится кататься на велосипеде и читать."},
+{section:"Listening",part:"engListening1",q:"3. The employee's profession is ____.",options:["A) interpreting","B) supervising","C) accounting","D) financing"],answer:2,explanation:"Правильный ответ — C) accounting. По смыслу аудио профессия сотрудника связана с бухгалтерией."},
+{section:"Listening",part:"engListening1",q:"4. The employee has always been a great ____.",options:["A) trainer","B) individual player","C) team player","D) supervisor"],answer:2,explanation:"Правильный ответ — C) team player. Это человек, который хорошо работает в команде."},
+{section:"Listening",part:"engListening1",q:"5. The employee has worked at an accounting firm for ____.",options:["A) four years","B) two years","C) one year","D) three years"],answer:1,explanation:"Правильный ответ — B) two years. В аудио говорится, что сотрудник работал в бухгалтерской фирме два года."},
+{section:"Listening",part:"engListening1",q:"6. The employee wants to partake in the growth and success of ____ works for.",options:["A) an accounting firm","B) schedule","C) organization","D) strength"],answer:2,explanation:"Правильный ответ — C) organization. Сотрудник хочет участвовать в росте и успехе организации."},
+{section:"Listening",part:"engListening1",q:"7. The employee is from ____.",options:["A) Almaty","B) Karaganda","C) Astana","D) New York"],answer:0,explanation:"Правильный ответ — A) Almaty. В аудио упоминается Алматы."},
+{section:"Listening",part:"engListening1",q:"8. The employee puts the aim to find ____ in a short time.",options:["A) a position","B) a job","C) a place","D) a profession"],answer:0,explanation:"Правильный ответ — A) a position. В контексте работы find a position означает найти должность."},
+
+{section:"Listening",part:"engListening2",q:"9. “Felis Sylvestris” literally means “cat of the ____”.",options:["A) home","B) wild","C) woods","D) street"],answer:2,explanation:"Правильный ответ — C) woods. Felis Sylvestris буквально означает «лесная кошка»."},
+{section:"Listening",part:"engListening2",q:"10. Archeologists found a jawbone in ____.",options:["A) 1986","B) 1985","C) 1984","D) 1983"],answer:3,explanation:"Правильный ответ — D) 1983. В аудио указан 1983 год."},
+{section:"Listening",part:"engListening2",q:"11. ____ is a progenitor of all domestic cats.",options:["A) Middle Western wildcat","B) Northern wildcat","C) Southern wildcat","D) Middle Eastern wildcat"],answer:3,explanation:"Правильный ответ — D) Middle Eastern wildcat. Это предок домашних кошек."},
+{section:"Listening",part:"engListening2",q:"12. The research journal Science published the study ____.",options:["A) in 2008","B) in 2004","C) in 2007","D) in 1983"],answer:2,explanation:"Правильный ответ — C) in 2007. Исследование было опубликовано в 2007 году."},
+{section:"Listening",part:"engListening2",q:"13. The text says ____ could not give exact answer about the issue.",options:["A) students","B) teachers","C) cat instructors","D) archaeologists"],answer:3,explanation:"Правильный ответ — D) archaeologists. Археологи не могли дать точный ответ."},
+{section:"Listening",part:"engListening2",q:"14. “Felis Sylvestris” is the Latin name of the ____ cat.",options:["A) city","B) domesticated","C) home","D) wild"],answer:3,explanation:"Правильный ответ — D) wild. Felis Sylvestris — латинское название дикой кошки."},
+{section:"Listening",part:"engListening2",q:"15. A cat's skeleton was found in the ____.",options:["A) bucket","B) box","C) basket","D) grave"],answer:3,explanation:"Правильный ответ — D) grave. Скелет кошки был найден в могиле."},
+{section:"Listening",part:"engListening2",q:"16. The cat-domestication puzzle is based on ____.",options:["A) genetic analyses","B) hypothesis","C) figures","D) feasible theory"],answer:0,explanation:"Правильный ответ — A) genetic analyses. Выводы основаны на генетическом анализе."},
+
+{section:"Grammar",part:"engGrammar",q:"17. Since the day he ____ ill he ____ a lot of reading.",options:["A) was / has done","B) was / had done","C) is / has done","D) is / has been done"],answer:0,explanation:"Правильный ответ — A) was / has done. Since указывает на момент в прошлом, а основное действие связано с настоящим результатом."},
+{section:"Grammar",part:"engGrammar",q:"18. I usually ____ television in the evening.",options:["A) watch","B) watches","C) am watch","D) watching"],answer:0,explanation:"Правильный ответ — A) watch. Usually показывает Present Simple, с I глагол без -s."},
+{section:"Grammar",part:"engGrammar",q:"19. We can’t afford ____ on holiday this year.",options:["A) to go","B) that we gone","C) being gone","D) going"],answer:0,explanation:"Правильный ответ — A) to go. После afford используется инфинитив: afford to go."},
+{section:"Grammar",part:"engGrammar",q:"20. Henry ____ had ____ wives.",options:["A) Eights / sixth","B) the Eighth / six","C) Eight / six","D) Eight / sixth"],answer:1,explanation:"Правильный ответ — B) the Eighth / six. Henry the Eighth — порядковое числительное, six wives — количественное."},
+{section:"Grammar",part:"engGrammar",q:"21. Enjoy your holiday! I hope you will be there when ____.",options:["A) a good weather","B) the weather is good","C) there is some good weather","D) in any good weather"],answer:1,explanation:"Правильный ответ — B) the weather is good. Weather неисчисляемое, поэтому a good weather неверно."},
+{section:"Grammar",part:"engGrammar",q:"22. Aim came to the party but she didn’t stay very long. She ____ leave early.",options:["A) has to","B) had to","C) could","D) must"],answer:1,explanation:"Правильный ответ — B) had to. Событие в прошлом, поэтому had to."},
+{section:"Grammar",part:"engGrammar",q:"23. Do you have ____ eggs?",options:["A) an","B) -","C) a","D) the"],answer:1,explanation:"Правильный ответ — B) -. Eggs во множественном числе и в общем значении, артикль не нужен."},
+{section:"Grammar",part:"engGrammar",q:"24. Make up a sentence from the words given below: Astana / friends / in / we / met / our",options:["A) In friends we met our Astana","B) We our friends met in Astana","C) We met our friends in Astana","D) Our friends in Astana met we"],answer:2,explanation:"Правильный ответ — C) We met our friends in Astana. Правильный порядок слов: subject + verb + object + place."},
+{section:"Grammar",part:"engGrammar",q:"25. ____ his work he started to plan his holiday.",options:["A) Having finished","B) Having finishing","C) Finished","D) Being finished"],answer:0,explanation:"Правильный ответ — A) Having finished. Сначала он закончил работу, потом начал планировать отпуск."},
+{section:"Grammar",part:"engGrammar",q:"26. ____ I have a look at this photo?",options:["A) Have to","B) Has to","C) May","D) Ought"],answer:2,explanation:"Правильный ответ — C) May. May I...? используется для вежливой просьбы о разрешении."},
+{section:"Grammar",part:"engGrammar",q:"27. Maria has three ____.",options:["A) peach","B) peachs","C) peachies","D) peaches"],answer:3,explanation:"Правильный ответ — D) peaches. Множественное число от peach — peaches."},
+{section:"Grammar",part:"engGrammar",q:"28. Advertising is very old. Examples of advertising ____ as far back as ancient Greece, where criers ____ out messages about their clients’ wares to the public.",options:["A) would be found / had been shouted","B) have found / were shouting","C) can be found / shouted","D) used to find / had been shouting"],answer:2,explanation:"Правильный ответ — C) can be found / shouted. В первой части нужен пассив, во второй — действие в прошлом."},
+{section:"Grammar",part:"engGrammar",q:"29. You ____ come with us if you don't want to.",options:["A) don't have","B) mustn’t","C) don't have to","D) haven't to"],answer:2,explanation:"Правильный ответ — C) don't have to. Это означает «не обязательно»."},
+{section:"Grammar",part:"engGrammar",q:"30. They covered the goods with canvas lest they ____ by rain.",options:["A) be damaged","B) be damage","C) damage","D) damaged"],answer:0,explanation:"Правильный ответ — A) be damaged. Здесь нужен пассив: чтобы товары не были повреждены дождём."},
+{section:"Grammar",part:"engGrammar",q:"31. We asked how ____ to the station.",options:["A) getting","B) to got","C) to get","D) get to"],answer:2,explanation:"Правильный ответ — C) to get. Правильная конструкция: how to get to the station."},
+{section:"Grammar",part:"engGrammar",q:"32. Coffee now is ____ widely traded commodity after oil.",options:["A) the second","B) a second","C) two","D) second"],answer:0,explanation:"Правильный ответ — A) the second. Перед порядковым числительным обычно используется the."},
+{section:"Grammar",part:"engGrammar",q:"33. My brother drove ____ along the narrow road.",options:["A) careless","B) carefuly","C) careful","D) carefully"],answer:3,explanation:"Правильный ответ — D) carefully. Нужно наречие, потому что оно описывает действие drove."},
+{section:"Grammar",part:"engGrammar",q:"34. My friend cut ____ when she was cooking.",options:["A) himself","B) herself","C) her","D) herselves"],answer:1,explanation:"Правильный ответ — B) herself. Подлежащее she, значит возвратное местоимение herself."},
+
+{section:"Reading",part:"engReading1",q:"35. Where is Chicago in the United States?",options:["A) The east coast","B) The midwest","C) The south","D) The west coast"],answer:1,explanation:"Правильный ответ — B) The midwest. В тексте Чикаго назван midwestern metropolis."},
+{section:"Reading",part:"engReading1",q:"36. What sport do the Chicago Cubs play in Wrigley Field?",options:["A) Rugby","B) Baseball","C) Soccer","D) Football"],answer:1,explanation:"Правильный ответ — B) Baseball. В тексте говорится о baseball и Chicago Cubs game."},
+{section:"Reading",part:"engReading1",q:"37. In the stadium, Keith and the other fans cheered for the Cubs. Keith was happy that the Cubs won with a score of ____.",options:["A) 5 - 3","B) 4 - 5","C) 3 - 2","D) 5 - 4"],answer:3,explanation:"Правильный ответ — D) 5 - 4. В тексте прямо указан счёт 5-4."},
+{section:"Reading",part:"engReading1",q:"38. Why was Keith impressed by the Chicago Water Tower?",options:["A) It is the tallest building in the city.","B) It supplies water to the entire population.","C) It is the only remaining monument of the World's Fair.","D) It is one of few landmarks that survived a historical fire."],answer:3,explanation:"Правильный ответ — D). Chicago Water Tower пережила Great Chicago Fire of 1871."},
+{section:"Reading",part:"engReading1",q:"39. Keith found the Chicago Water Tower impressive as it is one of the few remaining landmarks to have survived the Great Chicago Fire of ____.",options:["A) 1875","B) 1871","C) 1892","D) 1884"],answer:1,explanation:"Правильный ответ — B) 1871. Эта дата указана в тексте."},
+{section:"Reading",part:"engReading1",q:"40. What event was important for Chicago in 1892?",options:["A) Wrigley Field was constructed.","B) The Great Fire destroyed a large part of the town.","C) The World's Fair took place here.","D) Jackson Park became open to the public."],answer:2,explanation:"Правильный ответ — C). Jackson Park hosted the World's Fair of 1892."},
+{section:"Reading",part:"engReading1",q:"41. How did Keith arrive to the rooftop of the Willis Tower?",options:["A) He took an outdoor elevator.","B) He used an indoor elevator.","C) He climbed the building's exterior.","D) He walked up the interior stairs."],answer:3,explanation:"Правильный ответ — D). Keith climbed the stairs inside of the Willis Tower."},
+{section:"Reading",part:"engReading1",q:"42. During the last part of his visit, Keith managed to climb the stairs inside of the Willis Tower, a ____ story skyscraper.",options:["A) 100","B) 110","C) 120","D) 130"],answer:1,explanation:"Правильный ответ — B) 110. В тексте сказано: a 110-story skyscraper."},
+
+{section:"Reading",part:"engReading2",q:"43. Yellowstone is an important national park in the United States because:",options:["A) It is the country's first national park.","B) It is the largest U.S. national park.","C) It is the most ecologically diverse natural park.","D) It is the most visited U.S. national park."],answer:0,explanation:"Правильный ответ — A). Yellowstone был первым национальным парком в США."},
+{section:"Reading",part:"engReading2",q:"44. When did Lisa and her friends visit Yellowstone National Park?",options:["A) Last spring","B) Last summer","C) Last autumn","D) Last winter"],answer:2,explanation:"Правильный ответ — C) Last autumn. В тексте сказано Last fall, то есть осенью."},
+{section:"Reading",part:"engReading2",q:"45. Where did Lisa and her friends stay during their visit to the park?",options:["A) In a log cabin","B) In a rental home","C) At a hotel","D) At a campground"],answer:3,explanation:"Правильный ответ — D) At a campground. Они остановились at one of the park's campsites."},
+{section:"Reading",part:"engReading2",q:"46. All of the following are animals that Lisa saw during her trip except:",options:["A) Grizzly bears","B) Wild horses","C) Gray wolves","D) Bald eagles"],answer:1,explanation:"Правильный ответ — B) Wild horses. В тексте нет wild horses."},
+{section:"Reading",part:"engReading2",q:"47. They even spent an afternoon swimming in ____ Boiling River.",options:["A) Big Bend's","B) Yellowstone's","C) Grand Canyon's","D) White Sands's"],answer:1,explanation:"Правильный ответ — B) Yellowstone's. В тексте написано Yellowstone's Boiling River."},
+{section:"Reading",part:"engReading2",q:"48. Since Yellowstone contains many hot springs and the world's largest area of active geysers, ____ and her friends visited many different geyser sites.",options:["A) Asel","B) Lisa","C) John","D) Anna"],answer:1,explanation:"Правильный ответ — B) Lisa. В тексте говорится о Lisa and her friends."},
+{section:"Reading",part:"engReading2",q:"49. Why did Lisa and her friends wait patiently when visiting Old Faithful?",options:["A) They arrived an hour before the geyser opened to the public.","B) They were still wet from swimming in the Boiling River.","C) There was a long line to see the geyser.","D) The geyser took about 40 minutes to erupt."],answer:3,explanation:"Правильный ответ — D). Гейзер начал извергаться примерно через 40 минут."},
+{section:"Reading",part:"engReading2",q:"50. Yellowstone National Park, located in Idaho, Montana, and Wyoming, was established as the first national park in the ____.",options:["A) Canada","B) United Kingdom","C) United States"],answer:2,explanation:"Правильный ответ — C) United States. Это указано в первом предложении текста."}
+];
+
+function renderQuiz(containerId,questions,namePrefix){
+const container=document.getElementById(containerId);
+questions.forEach((item,index)=>{
+let html=`<div class="question"><b>${item.q}</b>`;
+if(item.figure){html+=figureHTML(item.figure);}
+if(item.image){html+=`<img src="${item.image}" class="question-image" alt="Рисунок к вопросу">`;}
+item.options.forEach((option,optionIndex)=>{
+html+=`<label><input type="radio" name="${namePrefix}${index}" value="${optionIndex}"> ${option}</label>`;
+});
+html+=`</div>`;
+container.innerHTML+=html;
+});
+}
+
+function renderEnglish(){
+englishQuestions.forEach((item,index)=>{
+const container=document.getElementById(item.part);
+let html=`<div class="question"><b>${item.q}</b>`;
+item.options.forEach((option,optionIndex)=>{
+html+=`<label><input type="radio" name="eng${index}" value="${optionIndex}"> ${option}</label>`;
+});
+html+=`</div>`;
+container.innerHTML+=html;
+});
+}
+
+renderQuiz("criticalQuiz",criticalQuestions,"critical");
+renderQuiz("analyticalQuiz",analyticalQuestions,"analytical");
+renderEnglish();
+
+function checkGroup(questions,namePrefix){
+let score=0;
+let html="";
+questions.forEach((item,index)=>{
+const selected=document.querySelector(`input[name="${namePrefix}${index}"]:checked`);
+const userAnswer=selected?Number(selected.value):null;
+
+if(userAnswer===item.answer){
+score++;
+html+=`<p class="correct">✔ ${item.q}</p>`;
+}else{
+html+=`<p class="wrong">✘ ${item.q}</p>`;
+}
+
+html+=`
+<div class="explanation">
+<b>Правильный ответ:</b> ${item.options[item.answer]}<br>
+<b>Ваш ответ:</b> ${userAnswer!==null?item.options[userAnswer]:"Ответ не выбран"}<br>
+<b>Объяснение:</b> ${item.explanation}
+</div>`;
+});
+return {score,html};
+}
+
+function checkEnglish(){
+let score=0,listeningScore=0,grammarScore=0,readingScore=0,html="";
+englishQuestions.forEach((item,index)=>{
+const selected=document.querySelector(`input[name="eng${index}"]:checked`);
+const userAnswer=selected?Number(selected.value):null;
+
+if(userAnswer===item.answer){
+score++;
+if(item.section==="Listening") listeningScore++;
+if(item.section==="Grammar") grammarScore++;
+if(item.section==="Reading") readingScore++;
+html+=`<p class="correct">✔ ${item.q}</p>`;
+}else{
+html+=`<p class="wrong">✘ ${item.q}</p>`;
+}
+
+html+=`
+<div class="explanation">
+<b>Правильный ответ:</b> ${item.options[item.answer]}<br>
+<b>Ваш ответ:</b> ${userAnswer!==null?item.options[userAnswer]:"Ответ не выбран"}<br>
+<b>Объяснение:</b> ${item.explanation}
+</div>`;
+});
+return {score,listeningScore,grammarScore,readingScore,html};
+}
+
+function checkAnswers(){
+const critical=checkGroup(criticalQuestions,"critical");
+const analytical=checkGroup(analyticalQuestions,"analytical");
+const english=checkEnglish();
+
+const totalScore=critical.score+analytical.score+english.score;
+
+let level="",message="";
+if(totalScore<=30){
+level="Начальный уровень";
+message="Нужно больше практики и повторения базовых тем.";
+}else if(totalScore<=60){
+level="Средний уровень";
+message="База есть, но стоит дополнительно потренироваться.";
+}else{
+level="Хорошая готовность";
+message="Результат хороший. Продолжайте повторять регулярно.";
+}
+
+const finalBlock=`
+<div class="result-box">
+<h2>Ваш общий результат: ${totalScore}/80</h2>
+<h2>${level}</h2>
+<p>${message}</p>
+<div class="score-grid">
+<div class="score-item">Критическое мышление: ${critical.score}/15</div>
+<div class="score-item">Аналитическое мышление: ${analytical.score}/15</div>
+<div class="score-item">English: ${english.score}/50</div>
+<div class="score-item">Listening: ${english.listeningScore}/16</div>
+<div class="score-item">Lexico-Grammar: ${english.grammarScore}/18</div>
+<div class="score-item">Reading: ${english.readingScore}/16</div>
+</div>
+</div>
+
+<div class="contact-box">
+<h2>Больше тестов — в Telegram-канале</h2>
+<div class="promo-grid">
+<a class="promo-btn channel" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">Telegram-канал</a>
+<a class="promo-btn whatsapp" href="https://wa.me/77007976745?text=Здравствуйте!%20Хочу%20узнать%20про%20тесты%20для%20КТ%20в%20магистратуру." target="_blank">WhatsApp</a>
+<a class="promo-btn telegram" href="https://t.me/elnazm_ln" target="_blank">Telegram лично</a>
+</div>
+</div>`;
+
+document.getElementById("results").innerHTML=finalBlock;
+document.getElementById("criticalResults").innerHTML="<h2>Ответы: критическое мышление</h2>"+critical.html;
+document.getElementById("analyticalResults").innerHTML="<h2>Ответы: аналитическое мышление</h2>"+analytical.html;
+document.getElementById("englishResults").innerHTML="<h2>Ответы: English</h2>"+english.html;
+
+document.getElementById("results").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
